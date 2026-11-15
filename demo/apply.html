@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>简历秒填 · 演示表单</title>
+    <style>
+      * { box-sizing: border-box; }
+      body {
+        margin: 0; padding: 32px 16px 80px; background: #f5f7fa; color: #0f172a;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+        font-size: 14px;
+      }
+      .wrap { max-width: 820px; margin: 0 auto; }
+      .banner {
+        background: #fffbeb; border: 1px solid #fde68a; color: #92400e;
+        padding: 10px 14px; border-radius: 10px; font-size: 12.5px; margin-bottom: 18px; line-height: 1.7;
+      }
+      h1 { font-size: 20px; margin: 0 0 6px; }
+      .sub { color: #64748b; font-size: 13px; margin-bottom: 22px; }
+      .card { background: #fff; border: 1px solid #e6ebf2; border-radius: 12px; padding: 18px 20px; margin-bottom: 16px; }
+      .card h2 {
+        font-size: 14px; color: #1f3864; margin: 0 0 14px; padding-left: 8px;
+        border-left: 3px solid #1f3864;
+      }
+      table { width: 100%; border-collapse: collapse; }
+      th {
+        width: 150px; text-align: right; padding: 9px 14px 9px 0;
+        font-weight: 400; color: #475569; vertical-align: top; font-size: 13px;
+      }
+      td { padding: 7px 0; }
+      td .req { color: #dc2626; margin-right: 2px; }
+      input[type="text"], input[type="tel"], input[type="email"], input[type="date"],
+      textarea, select {
+        width: 100%; max-width: 460px; padding: 7px 10px; font-size: 13px; font-family: inherit;
+        border: 1px solid #d7dfe9; border-radius: 8px; outline: none; background: #fff; color: #0f172a;
+      }
+      textarea { max-width: 100%; resize: vertical; }
+      select { max-width: 300px; }
+      input:focus, textarea:focus, select:focus { border-color: #2f5496; box-shadow: 0 0 0 3px rgba(47,84,150,.12); }
+      .radios label { margin-right: 18px; color: #334155; cursor: pointer; }
+      .hint { color: #94a3b8; font-size: 11.5px; margin-left: 8px; }
+      .submit {
+        display: inline-block; background: #1f3864; color: #fff; border: 0; border-radius: 9px;
+        padding: 10px 26px; font-size: 14px; cursor: pointer;
+      }
+      .submit:hover { background: #2f5496; }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="banner">
+        这是一个本地演示表单，用来验证插件能不能正确识别和回填。启动方式见 README 的「本地试一下」。
+        插件<b>不会</b>自动提交，点「提交」只会弹一个提示。
+      </div>
+
+      <h1>社会招聘 · 在线申请</h1>
+      <div class="sub">示例页面 · 表单结构模仿常见招聘网站</div>
+
+      <form onsubmit="alert('演示表单，不会真的提交'); return false;">
+        <div class="card">
+          <h2>基本信息</h2>
+          <table>
+            <tr><th><span class="req">*</span>姓名</th><td><input type="text" name="realName" /></td></tr>
+            <tr><th>性别</th><td class="radios">
+              <label><input type="radio" name="gender" value="1" /> 男</label>
+              <label><input type="radio" name="gender" value="2" /> 女</label>
+            </td></tr>
+            <tr><th>出生日期</th><td><input type="date" name="birthday" /></td></tr>
+            <tr><th><span class="req">*</span>手机号码</th><td><input type="tel" name="mobile" /></td></tr>
+            <tr><th><span class="req">*</span>电子邮箱</th><td><input type="email" name="email" /></td></tr>
+            <tr><th>身份证号</th><td><input type="text" name="idCard" /></td></tr>
+            <tr><th>政治面貌</th><td>
+              <select name="politicalStatus">
+                <option value="">请选择</option>
+                <option>中共党员</option>
+                <option>共青团员</option>
+                <option>群众</option>
+              </select>
+            </td></tr>
+            <tr><th>民族</th><td><input type="text" name="nation" /></td></tr>
+            <tr><th>现居住地</th><td><input type="text" name="address" /></td></tr>
+            <tr><th>籍贯</th><td><input type="text" name="hometown" /></td></tr>
+            <tr><th>紧急联系人</th><td><input type="text" name="emergencyContact" /></td></tr>
+            <tr><th>紧急联系人电话</th><td><input type="text" name="emergencyPhone" /></td></tr>
+            <tr><th>GitHub</th><td><input type="text" name="github" /></td></tr>
+          </table>
+        </div>
+
+        <div class="card">
+          <h2>求职意向</h2>
+          <table>
+            <tr><th>期望职位</th><td><input type="text" name="expectPosition" /></td></tr>
+            <tr><th>期望工作城市</th><td><input type="text" name="expectCity" /></td></tr>
+            <tr><th>期望薪资</th><td><input type="text" name="expectSalary" /></td></tr>
+            <tr><th>到岗时间</th><td><input type="text" name="onboardDate" /></td></tr>
+            <tr><th>每周实习天数</th><td><input type="text" name="internDays" /></td></tr>
+            <tr><th>是否服从调剂</th><td class="radios">
+              <label><input type="radio" name="adjust" value="1" /> 是</label>
+              <label><input type="radio" name="adjust" value="2" /> 否</label>
+            </td></tr>
+          </table>
+        </div>
+
+        <div class="card">
+          <h2>教育经历</h2>
+          <table>
+            <tr><th>毕业院校</th><td><input type="text" name="school" /></td></tr>
+            <tr><th>所学专业</th><td><input type="text" name="major" /></td></tr>
+            <tr><th>最高学历</th><td>
+              <select name="degree">
+                <option value="">请选择</option>
+                <option>大专</option>
+                <option>本科</option>
+                <option>硕士研究生</option>
+                <option>博士研究生</option>
+              </select>
+            </td></tr>
+            <tr><th>入学时间</th><td><input type="text" name="eduStart" placeholder="YYYY-MM" /></td></tr>
+            <tr><th>毕业时间</th><td><input type="text" name="eduEnd" placeholder="YYYY-MM" /></td></tr>
+            <tr><th>GPA</th><td><input type="text" name="gpa" /></td></tr>
+            <tr><th>专业排名</th><td><input type="text" name="rank" /></td></tr>
+          </table>
+        </div>
+
+        <div class="card">
+          <h2>工作经历</h2>
+          <table>
+            <tr><th>公司名称</th><td><input type="text" name="company" /></td></tr>
+            <tr><th>职位名称</th><td><input type="text" name="jobTitle" /></td></tr>
+            <tr><th>开始时间</th><td><input type="text" name="workStart" placeholder="YYYY-MM" /></td></tr>
+            <tr><th>结束时间</th><td><input type="text" name="workEnd" placeholder="YYYY-MM" /></td></tr>
+            <tr><th>工作内容</th><td><textarea name="workDesc" rows="5"></textarea></td></tr>
+          </table>
+        </div>
+
+        <div class="card">
+          <h2>项目经历</h2>
+          <table>
+            <tr><th>项目名称</th><td><input type="text" name="projectName" /></td></tr>
+            <tr><th>担任角色</th><td><input type="text" name="projectRole" /></td></tr>
+            <tr><th>技术栈</th><td><input type="text" name="techStack" /></td></tr>
+            <tr><th>项目描述</th><td><textarea name="projectDesc" rows="5"></textarea></td></tr>
+          </table>
+        </div>
+
+        <div class="card">
+          <h2>其他</h2>
+          <table>
+            <tr><th>专业技能</th><td><textarea name="skills" rows="4"></textarea></td></tr>
+            <tr><th>获奖情况</th><td><input type="text" name="awards" /></td></tr>
+            <tr><th>自我评价</th><td><textarea name="selfEvaluation" rows="5"></textarea></td></tr>
+          </table>
+        </div>
+
+        <button class="submit" type="submit">提交申请</button>
+      </form>
+    </div>
+  </body>
+</html>
